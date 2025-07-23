@@ -9,5 +9,6 @@ int main()
 {
 	cout << "Hello CMake." << endl;
 	cout << "hey wilson" << endl;
+	cout << "hey wilson2" << endl;
 	return 0;
 }
