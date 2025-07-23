@@ -1,0 +1,6 @@
+
+設定適用於跨平臺C++開發的Linux電腦
+
+sudo apt install -y openssh-server build-essential gdb rsync make zip nijna
+
+sudo apt install -y clang-format clang-tidy clang-tools cmake ninja-build
