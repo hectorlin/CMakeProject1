@@ -35,11 +35,12 @@ add_library(my_shared_library SHARED source3.cpp source4.cpp)
 -----cmake导入外部链接库---------
 how to include so library ???? 
 
-add_library(MyExternalLibrary SHARED IMPORTED)
-    set_target_properties(MyExternalLibrary PROPERTIES
-        IMPORTED_LOCATION "/path/to/your/libMyExternalLibrary.so"
-        INTERFACE_INCLUDE_DIRECTORIES "/path/to/your/headers"
-    )
+$ add_library(MyExternalLibrary SHARED IMPORTED)
+$     set_target_properties(MyExternalLibrary PROPERTIES
+$         IMPORTED_LOCATION "/path/to/your/libMyExternalLibrary.so"
+$        INTERFACE_INCLUDE_DIRECTORIES "/path/to/your/headers"
+$    )
+
 MyExternalLibrary: This is the internal name you'll use for the library within your CMake project.
 SHARED: Specifies that it's a shared library.
 IMPORTED: Indicates that the library is pre-existing and not built by this project.
@@ -49,8 +50,8 @@ INTERFACE_INCLUDE_DIRECTORIES: Specifies the directory containing the public hea
 -------------------------------------------
 how to Link the Library to your Executable or another Library ???
 
-add_executable(MyExecutable main.cpp)
-target_link_libraries(MyExecutable PRIVATE MyExternalLibrary)
+$ add_executable(MyExecutable main.cpp)
+$ target_link_libraries(MyExecutable PRIVATE MyExternalLibrary)
 
 MyExecutable: The name of your executable target.
 PRIVATE: Indicates that MyExternalLibrary is a private dependency of MyExecutable, meaning it's only needed for linking MyExecutable and not exposed to targets linking to MyExecutable. Use PUBLIC or INTERFACE if the dependency needs to be propagated.
@@ -62,7 +63,7 @@ Alternatively, for System Libraries:
 If the library is a standard system library (e.g., pthread, m), 
 you can directly link it without declaring an imported target:
 
-target_link_libraries(MyExecutable PRIVATE pthread)
+$ target_link_libraries(MyExecutable PRIVATE pthread)
 
 
 
