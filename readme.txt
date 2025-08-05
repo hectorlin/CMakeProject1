@@ -65,6 +65,26 @@ you can directly link it without declaring an imported target:
 
 $ target_link_libraries(MyExecutable PRIVATE pthread)
 
+-----------
+https://medium.com/@abhishekjainindore24/static-library-vs-dynamic-library-understanding-the-differences-26e47cac93b6
+
+Static Library vs Dynamic Library: Understanding the Differences
+
+static libraries have extensions like .lib (Windows) or .a (Unix/Linux).
+
+Typically, dynamic libraries have extensions like .dll (Windows) or .so (Unix/Linux).
+
+C++ programs are built in two phases
+
+Compilation - produces object code (.obj)
+Linking - produces executable code (.exe or .dll)
+Static library (.lib) is just a bundle of .obj files and therefore isn't a complete program. 
+It hasn't undergone the second (linking) phase of building a program. Dlls, on the other hand, 
+are like exe's and therefore are complete programs.
+
+
+
+
 
 
 
